@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       height: {
+        '5vh': '5vh',
         '10vh': '10vh',
         '20vh': '20vh',
         '30vh': '30vh',
@@ -29,6 +30,22 @@ export default {
         '80vw': '80vw',
         '90vw': '90vw',
         '100vw': '100vw',
+      },
+      colors: {
+        gS5jXb: '#313335',
+        Aqn7xd: '#444746',
+        EpFNW: '#1f1f1f',
+        IXoxUe: '#9e9e9e',
+        bbQxAb: '#bfbfbf',
+        YLNNHc: '#e8e8e8',
+        TMYS9: '#a8c7fa',
+        JKqx2: '#99c3ff',
+        rrJJUc: '#a8c7fa',
+        mXZkqc: '#444746',
+        Nsm0ce: '#a8c7fa',
+        XKMDxc: '#28292a',
+        aYn2S: '#333438',
+        Lm570b: '#3a3f50',
       },
     },
   },
