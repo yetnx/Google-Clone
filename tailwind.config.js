@@ -24,6 +24,7 @@ export default {
         '10vw': '10vw',
         '20vw': '20vw',
         '30vw': '30vw',
+        '35vw': '35vw',
         '40vw': '40vw',
         '50vw': '50vw',
         '60vw': '60vw',
@@ -35,6 +36,8 @@ export default {
       colors: {
         gray : '#202124',
         hover : '#2D2E31',
+        border : '#5C6065',
+        icon : '#9AA0A6',
       },
     },
   },
