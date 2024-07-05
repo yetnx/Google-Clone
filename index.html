@@ -49,7 +49,7 @@
     </div>
   </header>
 
-  <main class="flex justify-center items-center text-center h-85vh w-80vw mx-auto">
+  <main class="flex justify-center items-center text-center h-85vh mb-1 w-80vw mx-auto">
     <div class="flex flex-col justify-center items-center text-center">
       <div class="pb-8">
         <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" alt="">
@@ -101,19 +101,19 @@
         
       </div>
 
-      <div class="flex flex-row">
+      <div class="flex flex-row justify-center items-center text-center w-20vw h-14 pt-5">
 
-        <div>
+        <div class="mx-1 my-3">
           <a href="">
-            <button>
+            <button class="text-white text-sm bg-secondary rounded-md h-9 px-4 hover:border hover:border-bordersec">
               Google Search
             </button>
           </a>
         </div>
 
-        <div>
+        <div class="mx-1 my-3">
           <a href="">
-            <button>
+            <button class="text-white text-sm bg-secondary rounded-md h-9 px-4 hover:border hover:border-bordersec">
               I'm Feeling Lucky
             </button>
           </a>
@@ -121,17 +121,15 @@
 
       </div>
 
-      <div>
+      <div class="w-20vw flex justify-center text-center items-center h-7 pt-8">
 
         <div class="flex flex-row">
-          <h3>
+          <h3 class="text-sm text-text">
             Google offered in:
 
-            <div>
-              <a href="">
-                Italiano
-              </a>
-            </div>
+            <a class="text-button hover:underline" href="">
+              Italiano
+            </a>
           </h3>
         </div>
 
@@ -140,7 +138,58 @@
   </main>
 
   <footer>
+    <div class="h-24 bg-backbot">
+      <div class="h-12 w-full px-8 py-4">
+        <h3 class="text-white text-sm">
+          Italy
+        </h3>
+      </div>
 
+      <div class="h-12 w-full px-4 flex flex-row justify-between items-center text-center">
+
+        <div class="w-auto flex flex-row">
+          <a class="" href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              About
+            </h3>
+          </a>
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              Advertising
+            </h3>
+          </a>
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              Business
+            </h3>
+          </a>
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              How Search Works
+            </h3>
+          </a>
+        </div>
+
+        <div class="w-auto flex flex-row">
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              Privacy
+            </h3>
+          </a>
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              Terms
+            </h3>
+          </a>
+          <a href="">
+            <h3 class="text-white text-sm p-14 hover:underline">
+              Settings
+            </h3>
+          </a>
+        </div>
+
+      </div>
+    </div>
   </footer>
 
   <link rel="script" href="script.js">
