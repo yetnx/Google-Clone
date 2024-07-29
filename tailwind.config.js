@@ -43,6 +43,7 @@ export default {
         text : '#BFBFBF',
         button : '#99C3FF',
         backbot : '#171717',
+        header : '#111111',
       },
       padding: {
         '15': '15px',
