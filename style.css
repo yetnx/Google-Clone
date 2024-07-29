@@ -95,3 +95,7 @@
   font-weight: 900;
   font-style: italic;
 }
+
+.bg-header {
+  background-color: var(--header);
+}
