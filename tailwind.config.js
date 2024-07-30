@@ -19,6 +19,7 @@ export default {
         '85vh': '85vh',
         '90vh': '90vh',
         '100vh': '100vh',
+        '1182px': '1182px',
       },
       width: {
         '10vw': '10vw',
