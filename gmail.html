@@ -9,37 +9,170 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Inbox - {email} - Gmail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-dark': '#121212',
+                        'dark-gray': '#1E1E1E',
+                        'darker-gray': '#2D2D2D',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-
-<body class="bg-gray h-100vh">
-
-    <header>
-        <div class="h-10vh w-100vw bg-header">
-            <div class="h-12 w-60">
-
+<body class="bg-gray-100 dark:bg-deep-dark text-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white dark:bg-dark-gray shadow-md">
+            <div class="p-4">
+                <button class="bg-blue-500 dark:bg-blue-700 text-white rounded-full px-6 py-3 w-full hover:bg-blue-600 dark:hover:bg-blue-800">Compose</button>
             </div>
-    
-            <div>
-    
-            </div>
-    
-            <div>
-    
+            <nav class="mt-4">
+                <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-darker-gray">Inbox</a>
+                <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-darker-gray">Starred</a>
+                <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-darker-gray">Sent</a>
+                <a href="#" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-darker-gray">Drafts</a>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white dark:bg-dark-gray shadow-sm p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <input type="text" placeholder="Search mail" class="bg-gray-100 dark:bg-darker-gray text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-700">
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-darker-gray rounded-full p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </button>
+                    <button class="text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-darker-gray rounded-full p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </button>
+                    <!-- Dark mode toggle -->
+                    <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Email list -->
+            <div class="flex-1 overflow-y-auto bg-gray-100 dark:bg-deep-dark">
+                <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="flex items-center px-4 py-3 hover:bg-gray-200 dark:hover:bg-darker-gray cursor-pointer">
+                        <input type="checkbox" class="mr-4 bg-white dark:bg-darker-gray border-gray-300 dark:border-gray-600 rounded">
+                        <div class="w-1/4 font-semibold text-gray-900 dark:text-gray-300">Sender Name</div>
+                        <div class="w-2/4 text-gray-600 dark:text-gray-400">Email subject - Preview of the email content...</div>
+                        <div class="w-1/4 text-right text-gray-500 dark:text-gray-500">12:34 PM</div>
+                    </div>
+                    <!-- Repeat the above div for more email items -->
+                </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <main class="h-96 w-96">
-        <div class="h-96 w-96">
-            <div class="h-90vh w-20vw bg-white">
+    <style>
+        /* Global transition for all elements */
+        * {
+            transition: background-color 0.75s ease, color 0.75s ease, border-color 0.75s ease, fill 0.75s ease, stroke 0.75s ease;
+        }
 
-            </div>
-    
-            <div class="h-90vh w-80vw bg-white">
-    
-            </div>
-        </div>
-    </main>
+        /* Styles for the theme toggle button */
+        #theme-toggle {
+            transition: background-color 0.75s ease, color 0.75s ease;
+        }
 
+        #theme-toggle-dark-icon, #theme-toggle-light-icon {
+            transition: transform 0.75s ease-in-out, opacity 0.375s ease-in-out;
+        }
+
+        #theme-toggle-dark-icon.rotate, #theme-toggle-light-icon.rotate {
+            transform: rotate(360deg);
+        }
+
+        .icon-hidden {
+            opacity: 0;
+            position: absolute;
+        }
+        .toggle-checkbox:checked {
+            @apply: right-0 border-green-400;
+            right: 0;
+            border-color: #68D391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            @apply: bg-green-400;
+            background-color: #68D391;
+        }
+        #theme-toggle-dark-icon, #theme-toggle-light-icon {
+            transition: transform 0.5s ease-in-out;
+        }
+        #theme-toggle-dark-icon.rotate, #theme-toggle-light-icon.rotate {
+            transform: rotate(360deg);
+        }
+    </style>
+
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        themeToggleLightIcon.classList.remove('hidden');
+    } else {
+        themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+        // Toggle icons
+        themeToggleDarkIcon.classList.toggle('hidden');
+        themeToggleLightIcon.classList.toggle('hidden');
+
+        // Add rotation animation
+        if (themeToggleDarkIcon.classList.contains('hidden')) {
+            themeToggleLightIcon.classList.add('rotate');
+        } else {
+            themeToggleDarkIcon.classList.add('rotate');
+        }
+
+        // If set via local storage previously
+        if (localStorage.getItem('color-theme')) {
+            if (localStorage.getItem('color-theme') === 'light') {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            }
+        } else {
+            // If NOT set via local storage previously
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+    });
+
+    // Remove the rotation class after animation completes
+    themeToggleDarkIcon.addEventListener('transitionend', function() {
+        this.classList.remove('rotate');
+    });
+    themeToggleLightIcon.addEventListener('transitionend', function() {
+        this.classList.remove('rotate');
+    });
+</script>
 </body>
 </html>
