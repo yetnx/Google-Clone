@@ -99,3 +99,7 @@
 .bg-header {
   background-color: var(--header);
 }
+
+.bg-left {
+  background-color: var(--header);
+}
