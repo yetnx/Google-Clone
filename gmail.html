@@ -136,11 +136,21 @@
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Set the initial state based on the current theme
-        if (document.documentElement.classList.contains('dark')) {
-            themeToggleLightIcon.classList.remove('icon-hidden');
-            themeToggleDarkIcon.classList.add('icon-hidden');
+        // Function to set the theme
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('icon-hidden');
+                themeToggleDarkIcon.classList.add('icon-hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeToggleDarkIcon.classList.remove('icon-hidden');
+                themeToggleLightIcon.classList.add('icon-hidden');
+            }
         }
+
+        // Set the initial state to dark mode
+        setTheme(true);
 
         themeToggleBtn.addEventListener('click', function() {
             // Toggle icons with fade effect
@@ -155,10 +165,9 @@
             }
 
             // Toggle the theme
-            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.toggle('dark');
 
             // Store the current theme preference
-            const isDark = document.documentElement.classList.contains('dark');
             localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
         });
 
